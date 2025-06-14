@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahik Cafe - Billing Software</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rahik Cafe</h1>
+            <p>17 RN Road, Jessore | Phone: 01931175603</p>
+            <p>Restaurant Billing Software</p>
+        </header>
+
+        <div class="flex-container">
+            <div class="left-panel">
+                <div class="panel">
+                    <h2>Customer Information</h2>
+                    <div class="form-group">
+                        <label for="invoiceNo">Invoice No</label>
+                        <input type="text" id="invoiceNo" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateTime">Date & Time</label>
+                        <input type="text" id="dateTime" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" id="customerName" placeholder="Enter customer name">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number</label>
+                        <input type="text" id="customerPhone" placeholder="Enter phone number">
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Order Items</h2>
+                    <div class="form-group">
+                        <label for="itemSearch">Search Items</label>
+                        <input type="text" id="itemSearch" placeholder="Search items...">
+                        <div id="itemSuggestions" class="suggestions hidden"></div>
+                    </div>
+                    <table id="itemsTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderItems">
+                            <!-- Order items will be added here -->
+                        </tbody>
+                    </table>
+                    <div class="button-group">
+                        <button id="addItemBtn">Add Item</button>
+                        <button id="clearOrderBtn" class="danger">Clear Order</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Search Orders</h2>
+                    <div class="form-group">
+                        <label for="searchTerm">Search by Invoice No, Name or Phone</label>
+                        <input type="text" id="searchTerm" placeholder="Enter search term">
+                    </div>
+                    <button id="searchBtn" class="secondary">Search</button>
+                    <div id="searchResults" class="search-results hidden">
+                        <!-- Search results will appear here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="panel">
+                    <h2>Order Summary</h2>
+                    <div class="form-group">
+                        <label for="subtotal">Subtotal</label>
+                        <input type="text" id="subtotal" readonly class="taka">
+                    </div>
+                    <div class="form-group">
+                        <label for="discount">Discount (%)</label>
+                        <input type="number" id="discount" min="0" max="100" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="discountAmount">Discount Amount</label>
+                        <input type="text" id="discountAmount" readonly class="taka">
+                    </div>
+                    <div class="form-group">
+                        <label for="total">Total Amount</label>
+                        <input type="text" id="total" readonly class="taka">
+                    </div>
+                    <div class="button-group">
+                        <button id="generateBillBtn">Generate Bill</button>
+                        <button id="printBillBtn" class="secondary">Print Bill</button>
+                        <button id="exportExcelBtn">Export to Excel</button>
+                    </div>
+                </div>
+
+                <div id="invoicePreview" class="panel hidden">
+                    <h2>Invoice Preview</h2>
+                    <div id="invoiceContent">
+                        <!-- Invoice content will be generated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
